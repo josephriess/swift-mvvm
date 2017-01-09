@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Guu-sd-EPQ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PostsVC-->
+        <scene sceneID="AJz-YG-lai">
+            <objects>
+                <viewController id="MfN-5j-kw7" customClass="PostsVC" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P3F-c4-DUw"/>
+                        <viewControllerLayoutGuide type="bottom" id="iT7-0M-5Im"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CPH-zA-jVX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wbh-Gx-x8V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vQJ-6Z-ulO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1956" y="494"/>
+        </scene>
+        <!--Posts-->
+        <scene sceneID="dhE-lP-BuU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Guu-sd-EPQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Posts" id="MqB-cO-nbp"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="elT-cS-nSK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MfN-5j-kw7" kind="relationship" relationship="rootViewController" id="FmB-rk-ojx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yyt-iX-YCa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1058.4000000000001" y="494.30284857571218"/>
+        </scene>
+    </scenes>
+</document>
