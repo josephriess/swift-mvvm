@@ -18,6 +18,7 @@ class PostsVM {
     
     init() {
         posts = realm.objects(Post.self)
+        if (posts.count == 0) { getAllPosts(completion: nil) }
     }
     
     func getAllPosts(completion: VoidCompletion?) {

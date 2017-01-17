@@ -16,7 +16,9 @@ class PostsOP {
     let utilityQueue = DispatchQueue(label: "utility", qos: .utility, target: nil)
     
     func getAll(completion: @escaping VoidCompletion) {
-        utilityQueue.async {            
+        utilityQueue.async {
+            self.notificationCenter.post(name: Notifications.PostsStartLoading, object: nil)
+            
             Alamofire.request(self.url).responseArray { (response: DataResponse<[Post]>) in
                 guard let posts = response.result.value
                     else { self.handleError(); return }

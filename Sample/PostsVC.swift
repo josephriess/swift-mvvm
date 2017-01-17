@@ -10,12 +10,15 @@ import UIKit
 
 class PostsVC: UITableViewController {
     let vm = PostsVM()
+    let notificationCenter = NotificationCenter.default
     
     override func viewDidLoad() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 64
-        vm.getAllPosts(completion: nil)
     }
+    
+    
+    // MARK: UITableView
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return vm.posts.count
@@ -29,5 +32,5 @@ class PostsVC: UITableViewController {
         cell.desc.text = post.body
         
         return cell
-    }
+    }    
 }

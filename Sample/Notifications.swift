@@ -13,6 +13,7 @@ struct Notifications {
     static let GenericError = NSNotification.Name("GenericError")
     
     // POSTS
+    static let PostsStartLoading = NSNotification.Name("PostsStartLoading")
     static let PostsDidLoad = NSNotification.Name("PostsDidLoad")
     static let PostsDidError = NSNotification.Name("PostsDidError")
     
