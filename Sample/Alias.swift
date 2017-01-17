@@ -7,3 +7,4 @@
 //
 
 typealias VoidCompletion = () -> Void
+typealias OptionalVoidCompletion = (() -> Void)?

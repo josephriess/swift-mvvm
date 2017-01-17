@@ -7,18 +7,20 @@
 //
 
 import Foundation
+import RealmSwift
 
 class PostsVM {
     let postsOP = PostsOP()
+    let realm = try! Realm()
     
     var state: States = .done
-    var posts: [Post] = []
+    var posts: Results<Post>
     
-    func getAllPosts(completion: @escaping VoidCompletion) {
-        postsOP.getAll { results in
-            print("completou callback do vm")
-            completion()
-        }
-        
+    init() {
+        posts = realm.objects(Post.self)
+    }
+    
+    func getAllPosts(completion: VoidCompletion?) {
+        postsOP.getAll { completion?() }
     }
 }

@@ -1,8 +1,8 @@
 //
-//  PostsOP.swift
+//  TasksOP.swift
 //  Sample
 //
-//  Created by Mateus Pinheiro on 09/01/17.
+//  Created by Mateus Pinheiro on 17/01/17.
 //  Copyright © 2017 MAT. All rights reserved.
 //
 
@@ -10,31 +10,31 @@ import Alamofire
 import AlamofireObjectMapper
 import RealmSwift
 
-class PostsOP {
-    let url = "\(Constants.apiUrl)/posts"
+class TasksOP {
+    let url = "\(Constants.apiUrl)/todos"
     let notificationCenter = NotificationCenter.default
     let utilityQueue = DispatchQueue(label: "utility", qos: .utility, target: nil)
     
     func getAll(completion: @escaping VoidCompletion) {
-        utilityQueue.async {            
-            Alamofire.request(self.url).responseArray { (response: DataResponse<[Post]>) in
-                guard let posts = response.result.value
+        utilityQueue.async {
+            Alamofire.request(self.url).responseArray { (response: DataResponse<[Task]>) in
+                guard let tasks = response.result.value
                     else { self.handleError(); return }
                 
-                guard self.savePosts(posts)
+                guard self.saveAlbums(tasks)
                     else { self.handleError(); return }
                 
                 completion()
-                self.notificationCenter.post(name: Notifications.PostsDidLoad, object: nil)
+                self.notificationCenter.post(name: Notifications.TasksDidLoad, object: nil)
             }
         }
     }
     
-    func savePosts(_ posts: [Post]) -> Bool {
+    func saveAlbums(_ tasks: [Task]) -> Bool {
         do {
             let realm = try Realm()
             try realm.write {
-                for post in posts { realm.add(post, update: true) }
+                for task in tasks { realm.add(task, update: true) }
             }
             return true
         }
@@ -42,6 +42,7 @@ class PostsOP {
     }
     
     func handleError() {
-        notificationCenter.post(name: Notifications.PostsDidError, object: nil)
+        notificationCenter.post(name: Notifications.TasksDidError, object: nil)
     }
 }
+

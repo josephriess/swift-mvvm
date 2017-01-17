@@ -3,27 +3,63 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--PostsVC-->
-        <scene sceneID="AJz-YG-lai">
+        <scene sceneID="Dbz-sY-085">
             <objects>
-                <viewController id="MfN-5j-kw7" customClass="PostsVC" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="P3F-c4-DUw"/>
-                        <viewControllerLayoutGuide type="bottom" id="iT7-0M-5Im"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CPH-zA-jVX">
+                <tableViewController id="7Uz-zq-Rmf" customClass="PostsVC" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="rI1-Qk-7RB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Wbh-Gx-x8V"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vQJ-6Z-ulO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="58" id="UrE-Yi-eUJ" customClass="PostCell" customModule="Sample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="58"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UrE-Yi-eUJ" id="1ej-ou-sJW">
+                                    <frame key="frameInset" width="375" height="57"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The title of an amazing post" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dz3-LP-N6z">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is (maybe) a long and nice description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uwf-nJ-Vzb">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Uwf-nJ-Vzb" firstAttribute="trailing" secondItem="dz3-LP-N6z" secondAttribute="trailing" id="002-HE-vuM"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Uwf-nJ-Vzb" secondAttribute="bottom" id="8YJ-Va-pgl"/>
+                                        <constraint firstItem="dz3-LP-N6z" firstAttribute="leading" secondItem="1ej-ou-sJW" secondAttribute="leadingMargin" id="Ddn-uI-sfk"/>
+                                        <constraint firstAttribute="topMargin" secondItem="dz3-LP-N6z" secondAttribute="top" id="MLd-Y5-hfC"/>
+                                        <constraint firstItem="Uwf-nJ-Vzb" firstAttribute="leading" secondItem="dz3-LP-N6z" secondAttribute="leading" id="ktL-B9-VpM"/>
+                                        <constraint firstItem="Uwf-nJ-Vzb" firstAttribute="top" secondItem="dz3-LP-N6z" secondAttribute="bottom" id="qvL-Sb-6v8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dz3-LP-N6z" secondAttribute="trailing" id="ztG-1h-uKh"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="desc" destination="Uwf-nJ-Vzb" id="BL6-PQ-9bH"/>
+                                    <outlet property="title" destination="dz3-LP-N6z" id="FnC-vI-cvz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7Uz-zq-Rmf" id="Caa-9O-E7Y"/>
+                            <outlet property="delegate" destination="7Uz-zq-Rmf" id="OVq-wP-fYB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="tdx-S0-fuv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XiA-M0-Twk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1956" y="494"/>
+            <point key="canvasLocation" x="2005.5999999999999" y="493.40329835082463"/>
         </scene>
         <!--Posts-->
         <scene sceneID="dhE-lP-BuU">
@@ -38,7 +74,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="MfN-5j-kw7" kind="relationship" relationship="rootViewController" id="FmB-rk-ojx"/>
+                        <segue destination="7Uz-zq-Rmf" kind="relationship" relationship="rootViewController" id="CHa-rw-1tj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yyt-iX-YCa" userLabel="First Responder" sceneMemberID="firstResponder"/>

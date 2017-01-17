@@ -15,4 +15,12 @@ struct Notifications {
     // POSTS
     static let PostsDidLoad = NSNotification.Name("PostsDidLoad")
     static let PostsDidError = NSNotification.Name("PostsDidError")
+    
+    // ALBUMS
+    static let AlbumsDidLoad = NSNotification.Name("AlbumsDidLoad")
+    static let AlbumsDidError = NSNotification.Name("AlbumsDidError")
+    
+    // TASKS
+    static let TasksDidLoad = NSNotification.Name("TasksDidLoad")
+    static let TasksDidError = NSNotification.Name("TasksDidError")
 }
