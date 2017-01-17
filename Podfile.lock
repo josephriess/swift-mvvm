@@ -20,7 +20,6 @@ DEPENDENCIES:
   - Alamofire (~> 4.0)
   - Alamofire-Gloss
   - AlamofireObjectMapper (~> 4.0)
-  - Gloss (~> 1.1)
   - RealmSwift
 
 SPEC CHECKSUMS:
@@ -32,6 +31,6 @@ SPEC CHECKSUMS:
   Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
   RealmSwift: 17d6ee30b6f9df86364408c2197492e33bfea567
 
-PODFILE CHECKSUM: ce528b35c21539df377f04c1ec1f283ac843d67f
+PODFILE CHECKSUM: dfdde9b574f49f745ffe26c92af5fefd6a8fb70b
 
 COCOAPODS: 1.1.1
