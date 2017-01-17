@@ -9,5 +9,11 @@
 import UIKit
 
 class PostsVC: UIViewController {
-
+    let vm = PostsVM()
+    
+    override func viewDidLoad() {
+        vm.getAllPosts {
+            print("completou do vc")
+        }
+    }
 }
