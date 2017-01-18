@@ -20,10 +20,9 @@ class PostsOP {
             self.notificationCenter.post(name: Notifications.PostsStartLoading, object: nil)
             
             Alamofire.request(self.url).responseArray { (response: DataResponse<[Post]>) in
-                guard let posts = response.result.value
-                    else { self.handleError(); return }
-                
-                guard self.savePosts(posts)
+                guard
+                    let posts = response.result.value,
+                    self.savePosts(posts)
                     else { self.handleError(); return }
                 
                 completion()

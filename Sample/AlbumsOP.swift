@@ -18,10 +18,9 @@ class AlbumsOP {
     func getAll(completion: @escaping VoidCompletion) {
         utilityQueue.async {
             Alamofire.request(self.url).responseArray { (response: DataResponse<[Album]>) in
-                guard let albums = response.result.value
-                    else { self.handleError(); return }
-                
-                guard self.saveAlbums(albums)
+                guard
+                    let albums = response.result.value,
+                    self.saveAlbums(albums)
                     else { self.handleError(); return }
                 
                 completion()

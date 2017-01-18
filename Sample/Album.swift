@@ -13,6 +13,7 @@ class Album: Object, Mappable {
     dynamic var id: Int = 0
     dynamic var userId: Int = 0
     dynamic var title: String = ""
+    dynamic var cover: String = ""
     
     override static func primaryKey() -> String? { return "id" }
     

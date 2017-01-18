@@ -3,27 +3,70 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Albums-->
-        <scene sceneID="RJH-er-u5O">
+        <scene sceneID="Di9-zG-M6p">
             <objects>
-                <viewController id="nHf-LE-Ep5" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="b7k-IF-1C5"/>
-                        <viewControllerLayoutGuide type="bottom" id="rrV-yp-zYS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Cwa-eX-iJb">
+                <tableViewController id="Ttr-wz-b4R" customClass="AlbumsVC" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" sectionHeaderHeight="28" sectionFooterHeight="28" id="QWy-Pt-4z0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Albums" id="1Hw-uD-PDS"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Riy-Ds-Nlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlbumCell" rowHeight="80" id="tk0-WD-Bry" customClass="AlbumCell" customModule="Sample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tk0-WD-Bry" id="lbJ-dk-w2d">
+                                    <frame key="frameInset" width="375" height="79"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="wqU-sg-4b3">
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="443-hI-2ZC">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="64" id="Gwc-lH-2i9"/>
+                                                        <constraint firstAttribute="height" constant="64" id="x7K-t1-fdo"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vOt-vI-5FX">
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The album title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uF3-65-sf4">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Someone here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hO-o5-Lrl">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wqU-sg-4b3" secondAttribute="trailing" id="0sj-gu-0Qb"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="wqU-sg-4b3" secondAttribute="bottom" id="1y6-eP-iIo"/>
+                                        <constraint firstItem="wqU-sg-4b3" firstAttribute="top" secondItem="lbJ-dk-w2d" secondAttribute="topMargin" id="fvl-Kf-nsS"/>
+                                        <constraint firstItem="wqU-sg-4b3" firstAttribute="leading" secondItem="lbJ-dk-w2d" secondAttribute="leadingMargin" constant="8" id="hmB-x6-KmF"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ttr-wz-b4R" id="cLh-41-MBB"/>
+                            <outlet property="delegate" destination="Ttr-wz-b4R" id="Llu-Ue-tRp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Albums" id="jW6-AX-GXM"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="946-Mb-ufg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1856.8" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="1781.5999999999999" y="-0.44977511244377816"/>
         </scene>
         <!--Albums-->
         <scene sceneID="IVw-fv-1aR">
@@ -38,7 +81,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="nHf-LE-Ep5" kind="relationship" relationship="rootViewController" id="WVj-Fq-l5P"/>
+                        <segue destination="Ttr-wz-b4R" kind="relationship" relationship="rootViewController" id="aro-e7-tEa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lGq-2Y-rfv" userLabel="First Responder" sceneMemberID="firstResponder"/>
