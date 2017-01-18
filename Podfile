@@ -6,7 +6,6 @@ target 'Sample' do
 
     pod 'Alamofire', '~> 4.0'
     pod 'RealmSwift'
-    pod 'Alamofire-Gloss'
     pod 'AlamofireObjectMapper', '~> 4.0'
 
 
