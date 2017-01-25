@@ -6,23 +6,34 @@
 //  Copyright © 2017 MAT. All rights reserved.
 //
 
-import RealmSwift
+// import RealmSwift
 import ObjectMapper
 
-class Post: Object, Mappable {
-    dynamic var userId: Int = 0
-    dynamic var id: Int = 0
-    dynamic var title: String = ""
-    dynamic var body: String = ""
+// class Post: Object, Mappable {
+//     dynamic var userId: Int = 0
+//     dynamic var id: Int = 0
+//     dynamic var title: String = ""
+//     dynamic var body: String = ""
+
+//     required convenience init?(map: Map) { self.init() }
+
+//     override static func primaryKey() -> String? { return "id" }
+
+//     func mapping(map: Map) {
+//         id     <- map["id"]
+//         userId <- map["userId"]
+//         title  <- map["title"]
+//         body   <- map["body"]
+//     }
+// }
+
+struct Post: Mappable {
     
-    required convenience init?(map: Map) { self.init() }
-    
-    override static func primaryKey() -> String? { return "id" }
+    init?(map: Map) {
+        
+    }
     
     func mapping(map: Map) {
-        id     <- map["id"]
-        userId <- map["userId"]
-        title  <- map["title"]
-        body   <- map["body"]
+        
     }
 }

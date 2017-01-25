@@ -8,7 +8,8 @@ target 'Sample' do
     pod 'Alamofire', '~> 4.0'
     pod 'AlamofireObjectMapper', '~> 4.0'
     pod 'AlamofireImage', '~> 3.1'
-
+    pod 'RxSwift',    '~> 3.0'
+    pod 'RxCocoa',    '~> 3.0'
 
     target 'SampleTests' do
         inherit! :search_paths

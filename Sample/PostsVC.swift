@@ -9,7 +9,7 @@
 import UIKit
 
 class PostsVC: UITableViewController {
-    let vm = PostsVM()
+    let vm = PostsViewModel()
     let notificationCenter = NotificationCenter.default
     
     
@@ -31,15 +31,11 @@ class PostsVC: UITableViewController {
     // MARK: UITableView
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vm.posts.count
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        let post = vm.posts[indexPath.row]
-        
-        cell.title.text = post.title
-        cell.desc.text = post.body
         
         return cell
     }
@@ -48,7 +44,7 @@ class PostsVC: UITableViewController {
     // MARK: Pull to refresh
     
     func handlePullToRefresh() {
-        vm.getAllPosts(completion: nil)
+       // vm.getAllPosts(completion: nil)
     }
     
     
