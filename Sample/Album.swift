@@ -6,22 +6,18 @@
 //  Copyright © 2017 MAT. All rights reserved.
 //
 
-import RealmSwift
-import ObjectMapper
+import Argo
+import Runes
+import Curry
 
-class Album: Object, Mappable {
-    dynamic var id: Int = 0
-    dynamic var userId: Int = 0
-    dynamic var title: String = ""
-    dynamic var cover: String = ""
-    
-    override static func primaryKey() -> String? { return "id" }
-    
-    required convenience init?(map: Map) { self.init() }
-    
-    func mapping(map: Map) {
-        id     <- map["id"]
-        userId <- map["userId"]
-        title  <- map["title"]
+struct Album {
+    let title: String
+}
+
+extension Album: Decodable {
+
+    static func decode(_ json: JSON) -> Decoded<Album> {
+        return curry(Album.init)
+            <^> json <| "title"
     }
 }

@@ -6,34 +6,20 @@
 //  Copyright © 2017 MAT. All rights reserved.
 //
 
-// import RealmSwift
-import ObjectMapper
+import Argo
+import Curry
+import Runes
 
-// class Post: Object, Mappable {
-//     dynamic var userId: Int = 0
-//     dynamic var id: Int = 0
-//     dynamic var title: String = ""
-//     dynamic var body: String = ""
+struct Post {
+    let title: String
+    let body: String
+}
 
-//     required convenience init?(map: Map) { self.init() }
-
-//     override static func primaryKey() -> String? { return "id" }
-
-//     func mapping(map: Map) {
-//         id     <- map["id"]
-//         userId <- map["userId"]
-//         title  <- map["title"]
-//         body   <- map["body"]
-//     }
-// }
-
-struct Post: Mappable {
+extension Post: Decodable {
     
-    init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        
+    static func decode(_ json: JSON) -> Decoded<Post> {
+        return curry(Post.init)
+            <^> json <| "title"
+            <*> json <| "body"
     }
 }
