@@ -10,6 +10,9 @@ target 'Sample' do
     pod 'AlamofireImage', '~> 3.1'
     pod 'RxSwift',    '~> 3.0'
     pod 'RxCocoa',    '~> 3.0'
+    pod 'Curry'
+    pod 'Runes'
+    pod 'Argo'
 
     target 'SampleTests' do
         inherit! :search_paths
